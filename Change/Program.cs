@@ -36,10 +36,10 @@ namespace Change
             for (int i = 0; i < changeValues.Length; i++)
             {
                 Console.WriteLine(changeInt);
-                if (changeInt > changeValues[i])
+                while (changeInt >= changeValues[i])
                 {
-                    changeCoins[i] = changeInt % changeValues[i];
-                    changeInt -= changeCoins[i] * changeValues[i];
+                    changeCoins[i] += (changeValues[i] % changeInt) / changeValues[i];
+                    changeInt -= changeValues[i];
                 }
             }
 
