@@ -18,7 +18,6 @@ namespace Change
             float changeFloat = 0;
             int changeInt = 0;
 
-
             while (!valid)
             {
                 Console.Write("How much change is due?: £");
@@ -29,13 +28,9 @@ namespace Change
             changeFloat *= 100;
             changeInt = (int)changeFloat;
 
-            Console.WriteLine(changeFloat.ToString());
-            Console.WriteLine(changeInt);
-
             //put the quantity of each coin into changeCoins[]
             for (int i = 0; i < changeValues.Length; i++)
             {
-                Console.WriteLine(changeInt);
                 while (changeInt >= changeValues[i])
                 {
                     if (changeInt != changeValues[i])
@@ -44,12 +39,11 @@ namespace Change
                     changeInt -= changeValues[i];
                     } else
                     {
-                        changeInt += changeValues[i];
+                        changeCoins[i]++;
+                        changeInt -= changeValues[i];
                     }
                 }
             }
-
-            //CalculateChange(changeInt);
 
             //Write changeCoins to output stream
             for (int i = 0; i < changeCoins.Length; i++)
@@ -60,19 +54,6 @@ namespace Change
             }
 
             Console.ReadKey();
-        }
-
-        static void CalculateChange (int change)
-        {
-            for (int i = 0; i < changeValues.Length; i++)
-            {
-                Console.WriteLine(change);
-                if (change > changeValues[i])
-                {
-                    changeCoins[i] = change % changeValues[i];
-                    change -= changeCoins[i] * changeValues[i];
-                }
-            }
         }
     }
 }
