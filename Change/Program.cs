@@ -38,8 +38,14 @@ namespace Change
                 Console.WriteLine(changeInt);
                 while (changeInt >= changeValues[i])
                 {
+                    if (changeInt != changeValues[i])
+                    {
                     changeCoins[i] += (changeValues[i] % changeInt) / changeValues[i];
                     changeInt -= changeValues[i];
+                    } else
+                    {
+                        changeInt += changeValues[i];
+                    }
                 }
             }
 
