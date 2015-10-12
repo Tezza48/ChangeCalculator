@@ -26,13 +26,26 @@ namespace Change
                 valid = float.TryParse(change, out changeFloat);
                 if (changeFloat <= 0) valid = false;
             }
-            changeInt = (int)(changeFloat * 100);
+            changeFloat *= 100;
+            changeInt = (int)changeFloat;
 
             Console.WriteLine(changeFloat.ToString());
             Console.WriteLine(changeInt);
 
-            CalculateChange(changeInt);
+            //put the quantity of each coin into changeCoins[]
+            for (int i = 0; i < changeValues.Length; i++)
+            {
+                Console.WriteLine(changeInt);
+                if (changeInt > changeValues[i])
+                {
+                    changeCoins[i] = changeInt % changeValues[i];
+                    changeInt -= changeCoins[i] * changeValues[i];
+                }
+            }
 
+            //CalculateChange(changeInt);
+
+            //Write changeCoins to output stream
             for (int i = 0; i < changeCoins.Length; i++)
             {
                 Console.Write(changeCoins[i]);
