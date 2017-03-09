@@ -1,4 +1,3 @@
 # ChangeCalculator
-Algorithm to calculate change.
 
-This algorithm will take an input of money as a float and calculate the change to give, using the least coins possible.
+Program that takes in an ammount of money and prints the ammount of change that it can be split into in the least number of coins.
